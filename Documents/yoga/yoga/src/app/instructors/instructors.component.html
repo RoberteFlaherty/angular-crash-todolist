@@ -1,0 +1,19 @@
+<h2>Yoga Instructors</h2>
+<ul class="instructors">
+  <li *ngFor="let instructor of instructors"
+  [class.selected]="instructor === selectedInstructor"
+  (click)="onSelect(instructor)">
+    <span class="badge">{{instructor.id}} </span> {{instructor.firstName}}
+    </li>
+    </ul>
+
+<div *ngIf="selectedInstructor">
+
+  <h2>{{selectedInstructor.firstName}} details </h2>
+  <div><span>ID: </span>{{selectedInstructor.id}}</div>
+<div>
+  <label>first name:
+    <input [(ngModel)]="instructor.firstName" placeholder="firstName" />
+    </label>
+    </div>
+    </div>
