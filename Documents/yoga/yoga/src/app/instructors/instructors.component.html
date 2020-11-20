@@ -1,19 +1,19 @@
 <h2>Yoga Instructors</h2>
 <ul class="instructors">
-  <li *ngFor="let instructor of instructors"
-  [class.selected]="instructor === selectedInstructor"
-  (click)="onSelect(instructor)">
+  <li *ngFor="let instructor of instructors">
+  <a routerLink="/detail/{{instructor.id}}">
     <span class="badge">{{instructor.id}} </span> {{instructor.firstName}}
-    </li>
-    </ul>
-
-<div *ngIf="selectedInstructor">
-
-  <h2>{{selectedInstructor.firstName}} details </h2>
-  <div><span>ID: </span>{{selectedInstructor.id}}</div>
-<div>
-  <label>first name:
-    <input [(ngModel)]="instructor.firstName" placeholder="firstName" />
-    </label>
-    </div>
-    </div>
+    </a>
+    <button class="delete" title="delete instructor"
+        (click)="delete(instructor)">x</button>
+        </li>
+        </ul>
+    <div>
+      <label>Instructor name:
+        <input [(ngModel)]="firstName" id="instructorFirstName" #instructorFirstName />
+        <input [(ngModel)]="lastName" id="instructorLastName" #instructorLastName />
+        </label>
+        <button (click)="add();">
+          ADD
+          </button>
+          </div>

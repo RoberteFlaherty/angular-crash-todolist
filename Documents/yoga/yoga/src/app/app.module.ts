@@ -5,16 +5,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InstructorsComponent } from './instructors/instructors.component';
 import { FormsModule } from '@angular/forms';
+import { InstructorDetailComponent } from './instructor-detail/instructor-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { InstructorSearchComponent } from './instructor-search/instructor-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InstructorsComponent
+    InstructorsComponent,
+    InstructorDetailComponent,
+    MessagesComponent,
+    DashboardComponent,
+    InstructorSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false})
   ],
   providers: [],
   bootstrap: [AppComponent]
